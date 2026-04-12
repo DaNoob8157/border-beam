@@ -26,3 +26,4 @@ coverage/
 .parcel-cache/
 .turbo/
 AI seach.html
+.npmrc

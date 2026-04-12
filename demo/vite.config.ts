@@ -4,7 +4,7 @@ import { resolve } from 'path';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/border-beam/',
+  base: '/',
   resolve: {
     alias: {
       'border-beam': resolve(__dirname, '../src/index.ts'),
