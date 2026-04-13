@@ -227,7 +227,7 @@ export default function App() {
               </BorderBeam>
             </div>
             <div className="example-cell">
-              <BorderBeam size="line" colorVariant="colorful" theme="dark" active duration={2.4}>
+              <BorderBeam size="line" colorVariant="colorful" theme="dark" active duration={2.4} borderRadius={20}>
                 <MockSearchBar />
               </BorderBeam>
             </div>

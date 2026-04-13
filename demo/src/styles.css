@@ -785,6 +785,7 @@ body {
   .mock-search {
     width: 100%;
     height: 48px;
+    border-radius: 20px;
   }
 
   .playground-controls {
