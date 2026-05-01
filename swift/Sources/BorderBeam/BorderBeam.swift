@@ -73,7 +73,7 @@ public struct BorderBeam<Content: View>: View {
 
         let isStatic = colorVariant == .mono || staticColors
         let effectiveHue = (size == .line ? min(hueRange, 13) : hueRange)
-        _beamOpacity = State(initialValue: active ? 0 : 0)
+        _beamOpacity = State(initialValue: active ? 1 : 0)
         _hueOffset = State(initialValue: isStatic ? 0 : -effectiveHue)
     }
 
@@ -355,7 +355,8 @@ private struct BorderBeamCanvas: View {
                 let angle = rotationAngle(date: timeline.date)
                 draw(in: ctx, size: canvasSize, angle: angle)
             }
-        }    }
+        }
+    }
 
     // MARK: Drawing
 
@@ -448,19 +449,21 @@ private struct BorderBeamCanvas: View {
     private func beamOpacity(at loc: Double) -> Double {
         let tailStart = 0.30, tailEnd = 0.52
         let headEnd   = 0.80, fadeEnd  = 0.95
+        let peakOpacity = 0.80   // opacity at the brightest part of the beam head
+        let peakBump    = 0.20   // extra opacity added at the very centre of the peak
 
         if loc <= tailStart { return 0 }
         if loc <= tailEnd {
             let t = (loc - tailStart) / (tailEnd - tailStart)
-            return t * t * 0.80                        // quadratic ramp-in
+            return t * t * peakOpacity                         // quadratic ramp-in
         }
         if loc <= headEnd {
             let t = (loc - tailEnd) / (headEnd - tailEnd)
-            return 0.80 + sin(t * .pi) * 0.20         // smooth peak
+            return peakOpacity + sin(t * .pi) * peakBump       // smooth peak
         }
         if loc <= fadeEnd {
             let t = (loc - headEnd) / (fadeEnd - headEnd)
-            return (1 - t) * 0.80                     // linear ramp-out
+            return (1 - t) * peakOpacity                       // linear ramp-out
         }
         return 0
     }
@@ -620,9 +623,14 @@ private struct LineBeamCanvas: View {
         date: Date,
         width: CGFloat
     ) -> (beamX: CGFloat, widthScale: CGFloat, heightScale: CGFloat, edgeOpacity: CGFloat) {
+        let t = date.timeIntervalSinceReferenceDate
+        let phase = t.truncatingRemainder(dividingBy: duration)
+        let progress = CGFloat(phase / duration)      // 0 → 1
+
         // Travel range from CSS beam-travel keyframes: 0.06 → 0.94
         let beamTravelStart: CGFloat = 0.06
         let beamTravelEnd: CGFloat   = 0.94
+        let normX = beamTravelStart + progress * (beamTravelEnd - beamTravelStart)
         let beamX = normX * width
 
         // Width scale: widest at centre (matching CSS 0.5→1.5 range)
