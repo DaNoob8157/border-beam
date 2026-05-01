@@ -1,0 +1,26 @@
+{
+  "": {
+    "swift-dependencies": "/home/runner/work/border-beam/border-beam/swift/.build/x86_64-unknown-linux-gnu/debug/BorderBeam.build/primary.swiftdeps"
+  },
+  "/home/runner/work/border-beam/border-beam/swift/Sources/BorderBeam/BorderBeam.swift": {
+    "dependencies": "/home/runner/work/border-beam/border-beam/swift/.build/x86_64-unknown-linux-gnu/debug/BorderBeam.build/BorderBeam.d",
+    "object": "/home/runner/work/border-beam/border-beam/swift/.build/x86_64-unknown-linux-gnu/debug/BorderBeam.build/BorderBeam.swift.o",
+    "swiftmodule": "/home/runner/work/border-beam/border-beam/swift/.build/x86_64-unknown-linux-gnu/debug/BorderBeam.build/BorderBeam~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/border-beam/border-beam/swift/.build/x86_64-unknown-linux-gnu/debug/BorderBeam.build/BorderBeam.swiftdeps",
+    "diagnostics": "/home/runner/work/border-beam/border-beam/swift/.build/x86_64-unknown-linux-gnu/debug/BorderBeam.build/BorderBeam.dia"
+  },
+  "/home/runner/work/border-beam/border-beam/swift/Sources/BorderBeam/ColorPalettes.swift": {
+    "dependencies": "/home/runner/work/border-beam/border-beam/swift/.build/x86_64-unknown-linux-gnu/debug/BorderBeam.build/ColorPalettes.d",
+    "object": "/home/runner/work/border-beam/border-beam/swift/.build/x86_64-unknown-linux-gnu/debug/BorderBeam.build/ColorPalettes.swift.o",
+    "swiftmodule": "/home/runner/work/border-beam/border-beam/swift/.build/x86_64-unknown-linux-gnu/debug/BorderBeam.build/ColorPalettes~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/border-beam/border-beam/swift/.build/x86_64-unknown-linux-gnu/debug/BorderBeam.build/ColorPalettes.swiftdeps",
+    "diagnostics": "/home/runner/work/border-beam/border-beam/swift/.build/x86_64-unknown-linux-gnu/debug/BorderBeam.build/ColorPalettes.dia"
+  },
+  "/home/runner/work/border-beam/border-beam/swift/Sources/BorderBeam/Types.swift": {
+    "dependencies": "/home/runner/work/border-beam/border-beam/swift/.build/x86_64-unknown-linux-gnu/debug/BorderBeam.build/Types.d",
+    "object": "/home/runner/work/border-beam/border-beam/swift/.build/x86_64-unknown-linux-gnu/debug/BorderBeam.build/Types.swift.o",
+    "swiftmodule": "/home/runner/work/border-beam/border-beam/swift/.build/x86_64-unknown-linux-gnu/debug/BorderBeam.build/Types~partial.swiftmodule",
+    "swift-dependencies": "/home/runner/work/border-beam/border-beam/swift/.build/x86_64-unknown-linux-gnu/debug/BorderBeam.build/Types.swiftdeps",
+    "diagnostics": "/home/runner/work/border-beam/border-beam/swift/.build/x86_64-unknown-linux-gnu/debug/BorderBeam.build/Types.dia"
+  }
+}

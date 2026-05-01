@@ -1,6 +1,6 @@
 # border-beam
 
-Animated border beam effect for React. A lightweight component that adds a traveling glow animation around any element — cards, buttons, inputs, or search bars.
+Animated border beam effect for React and SwiftUI. A lightweight component that adds a traveling glow animation around any element — cards, buttons, inputs, or search bars.
 
 ## Install
 
@@ -152,3 +152,81 @@ The effect layers are purely decorative and use `pointer-events: none`. They do 
 ## License
 
 [MIT](./LICENSE)
+
+---
+
+## SwiftUI
+
+A native SwiftUI port lives in the `swift/` directory as a Swift Package Manager library.
+
+**Requirements:** iOS 15+ / macOS 12+
+
+### Install (SPM)
+
+In Xcode → File → Add Package Dependencies, enter the repository URL and set the path to `swift/`.
+
+Or add it to your `Package.swift`:
+
+```swift
+.package(url: "https://github.com/DaNoob8157/border-beam", from: "1.0.0")
+```
+
+### Quick start (SwiftUI)
+
+```swift
+import SwiftUI
+import BorderBeam
+
+struct ContentView: View {
+    var body: some View {
+        // Container form
+        BorderBeam(size: .md, colorVariant: .colorful) {
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .fill(.black)
+                .frame(width: 300, height: 180)
+                .overlay(Text("Hello").foregroundColor(.white))
+        }
+
+        // Modifier form
+        myCard
+            .borderBeam(size: .md, colorVariant: .ocean)
+    }
+}
+```
+
+### SwiftUI API
+
+```swift
+BorderBeam(
+    size: .md,           // .sm | .md | .line
+    colorVariant: .colorful,  // .colorful | .mono | .ocean | .sunset
+    theme: .dark,        // .dark | .light | .auto
+    staticColors: false,
+    duration: nil,       // seconds per cycle (auto-selected from preset if nil)
+    active: true,        // toggle animation on/off
+    cornerRadius: nil,   // points (auto-selected if nil)
+    brightness: 1.3,
+    saturation: nil,     // auto
+    hueRange: 30,        // degrees of hue-shift oscillation
+    strength: 1.0        // overall opacity multiplier
+) {
+    /* your content */
+}
+```
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `size` | `BorderBeamSize` | `.md` | Size preset |
+| `colorVariant` | `BorderBeamColorVariant` | `.colorful` | Color palette |
+| `theme` | `BorderBeamTheme` | `.dark` | Background theme |
+| `staticColors` | `Bool` | `false` | Disable hue-shift animation |
+| `duration` | `Double?` | `nil` | Cycle duration in seconds |
+| `active` | `Bool` | `true` | Show / hide the beam |
+| `cornerRadius` | `Double?` | `nil` | Corner radius in points |
+| `brightness` | `Double` | `1.3` | Glow brightness |
+| `saturation` | `Double?` | `nil` | Glow saturation |
+| `hueRange` | `Double` | `30` | Hue oscillation range (°) |
+| `strength` | `Double` | `1.0` | Effect opacity (0–1) |
+| `onActivate` | `(() -> Void)?` | `nil` | Fade-in complete callback |
+| `onDeactivate` | `(() -> Void)?` | `nil` | Fade-out complete callback |
+
