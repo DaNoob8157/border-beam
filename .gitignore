@@ -1,8 +1,25 @@
-# Dependencies
-node_modules/
+# Swift Package Manager build artifacts
+.build/
+*.o
+*.d
 
-# Build output
-dist/
+# Xcode
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+DerivedData/
+*.playground/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xccheckout
+*.xcscmblueprint
+*.moved-aside
+
+# OS
+.DS_Store
+Thumbs.db
 
 # IDE
 .idea/
@@ -10,20 +27,5 @@ dist/
 *.swp
 *.swo
 
-# OS
-.DS_Store
-Thumbs.db
-
 # Logs
 *.log
-npm-debug.log*
-
-# Test coverage
-coverage/
-
-# Cache
-.cache/
-.parcel-cache/
-.turbo/
-AI seach.html
-.npmrc
