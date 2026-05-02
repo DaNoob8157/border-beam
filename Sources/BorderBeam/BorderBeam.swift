@@ -375,11 +375,10 @@ private struct BorderBeamCanvas: View {
         let colors = BeamColorPalettes.borderColors(for: colorVariant, isDark: isDark)
         let gradient = makeBeamGradient(from: colors)
         let center = CGPoint(x: canvasSize.width / 2, y: canvasSize.height / 2)
-        let shading = GraphicsContext.Shading.angularGradient(
+        let shading = GraphicsContext.Shading.conicGradient(
             gradient,
             center: center,
-            startAngle: .degrees(angle),
-            endAngle: .degrees(angle + 360)
+            angle: Angle.degrees(angle)
         )
 
         // Outermost bloom: very blurred, widest stroke
@@ -397,8 +396,10 @@ private struct BorderBeamCanvas: View {
         }
 
         // Sharp stroke on top
-        ctx.opacity = strokeOpacity
-        ctx.stroke(path, with: shading, lineWidth: strokeLineWidth)
+        ctx.drawLayer { layer in
+            layer.opacity = strokeOpacity
+            layer.stroke(path, with: shading, lineWidth: strokeLineWidth)
+        }
     }
 
     // MARK: Gradient construction
